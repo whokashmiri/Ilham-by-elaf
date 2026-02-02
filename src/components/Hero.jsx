@@ -84,7 +84,7 @@ export default function Hero() {
                 {/* buttons */}
                 <div className="mt-8 flex flex-wrap items-center gap-4">
                   <button className="group inline-flex items-center justify-center rounded-2xl bg-black px-6 py-4 text-[14px] font-semibold text-white shadow-[0_18px_45px_rgba(0,0,0,0.35)] hover:translate-y-[-1px] hover:shadow-[0_22px_60px_rgba(0,0,0,0.40)] active:translate-y-[0px]">
-                    Transform my videos
+                    Download My Portfolio
                     <ArrowUpRight className="ml-2 h-4 w-4 opacity-80 transition group-hover:opacity-100" />
                   </button>
 
@@ -92,7 +92,7 @@ export default function Hero() {
                     <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-black/5 ring-1 ring-black/10">
                       <Play className="h-4 w-4" />
                     </span>
-                    View showreel
+                    Follow On Instagram
                   </button>
                 </div>
               </div>
