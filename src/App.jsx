@@ -3,6 +3,7 @@ import TestimonialsCarousel from "./components/TestimonialsCarousel";
 import Navbar from "./components/Navbar";
 import AppBackground from "./components/AppBackground";
 import ServicesSection from "./components/ServicesSection";
+import ClientBaseCarousel from "./components/ClientBaseCarousel";
 
 
 export default function App() {
@@ -14,6 +15,7 @@ export default function App() {
       <TestimonialsCarousel/>
       </AppBackground>
       <ServicesSection />
+      <ClientBaseCarousel/>
     </main>
   );
 }

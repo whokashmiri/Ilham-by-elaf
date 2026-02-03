@@ -16,21 +16,21 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
  */
 
 const WIDE_VIDEOS = [
-  "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
-  "https://www.w3schools.com/html/mov_bbb.mp4",
-  "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/beer.mp4",
+  "https://www.pexels.com/download/video/9419481/",
+  "https://www.pexels.com/download/video/7640074/",
+  "https://www.pexels.com/download/video/7278400/",
 ];
 
 const TALL_VIDEOS = [
-  "https://www.w3schools.com/html/mov_bbb.mp4",
-  "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
-  "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/beer.mp4",
+  "https://www.pexels.com/download/video/7857988/",
+  "https://www.pexels.com/download/video/7591975/",
+  "https://www.pexels.com/download/video/6914904/",
 ];
 
 const IMG_THUMBNAILS =
-  "https://images.unsplash.com/photo-1520975958225-2bcb6b2f2a5a?auto=format&fit=crop&w=1600&q=80";
+  "https://images.pexels.com/photos/1170412/pexels-photo-1170412.jpeg";
 const IMG_COLOR =
-  "https://images.unsplash.com/photo-1520697830682-bbb6e85e2b0d?auto=format&fit=crop&w=1600&q=80";
+  "https://images.pexels.com/photos/2041627/pexels-photo-2041627.jpeg";
 
 function VideoCycleCard({
   title,
@@ -95,27 +95,6 @@ function VideoCycleCard({
         ].join(" ")}
       />
 
-      {/* center arrows control (like screenshot’s small arrows control) */}
-      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-        <div className="flex items-center gap-1 rounded-full bg-black/70 px-2 py-2 ring-1 ring-white/10 backdrop-blur">
-          <button
-            type="button"
-            onClick={prev}
-            className="pointer-events-auto flex h-8 w-8 items-center justify-center rounded-full text-white/90 hover:bg-white/10"
-            aria-label="Previous"
-          >
-            <ChevronLeft className="h-4 w-4" />
-          </button>
-          <button
-            type="button"
-            onClick={next}
-            className="pointer-events-auto flex h-8 w-8 items-center justify-center rounded-full text-white/90 hover:bg-white/10"
-            aria-label="Next"
-          >
-            <ChevronRight className="h-4 w-4" />
-          </button>
-        </div>
-      </div>
 
       {/* text */}
       <div

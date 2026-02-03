@@ -2,7 +2,7 @@
 import React from "react";
 import { Play, ArrowUpRight } from "lucide-react";
 
-const VIDEO_URL = "https://www.w3schools.com/html/mov_bbb.mp4"; // use direct .mp4
+const VIDEO_URL = "https://www.pexels.com/download/video/6962444/"; // use direct .mp4
 
 export default function Hero() {
   return (
