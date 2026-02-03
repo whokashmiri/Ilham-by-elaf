@@ -2,6 +2,7 @@ import Hero from "./components/Hero";
 import TestimonialsCarousel from "./components/TestimonialsCarousel";
 import Navbar from "./components/Navbar";
 import AppBackground from "./components/AppBackground";
+import ServicesSection from "./components/ServicesSection";
 
 
 export default function App() {
@@ -12,6 +13,7 @@ export default function App() {
       <Hero />
       <TestimonialsCarousel/>
       </AppBackground>
+      <ServicesSection />
     </main>
   );
 }

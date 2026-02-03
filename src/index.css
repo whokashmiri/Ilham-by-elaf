@@ -100,8 +100,9 @@ html {
 .animate-floatD { animation: floatD 18s ease-in-out infinite; }
 
 
-
+div,
 h1,
+h2,
 p,
 span,
 a,
