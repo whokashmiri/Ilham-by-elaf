@@ -73,6 +73,34 @@ html {
 
 
 
+@keyframes floatA {
+  0% { transform: translate(0,0) scale(1); }
+  50% { transform: translate(80px,40px) scale(1.08); }
+  100% { transform: translate(0,0) scale(1); }
+}
+@keyframes floatB {
+  0% { transform: translate(0,0) scale(1); }
+  50% { transform: translate(-70px,60px) scale(1.06); }
+  100% { transform: translate(0,0) scale(1); }
+}
+@keyframes floatC {
+  0% { transform: translate(0,0) scale(1); }
+  50% { transform: translate(90px,-40px) scale(1.10); }
+  100% { transform: translate(0,0) scale(1); }
+}
+@keyframes floatD {
+  0% { transform: translate(0,0) scale(1); }
+  50% { transform: translate(-90px,-30px) scale(1.07); }
+  100% { transform: translate(0,0) scale(1); }
+}
+
+.animate-floatA { animation: floatA 12s ease-in-out infinite; }
+.animate-floatB { animation: floatB 14s ease-in-out infinite; }
+.animate-floatC { animation: floatC 16s ease-in-out infinite; }
+.animate-floatD { animation: floatD 18s ease-in-out infinite; }
+
+
+
 h1,
 p,
 span,
