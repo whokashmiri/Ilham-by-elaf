@@ -7,7 +7,7 @@ import ClientBaseCarousel from "./components/ClientBaseCarousel";
 import ResultsCaseStudy from "./components/ResultsCaseStudy";
 import PricingSection from "./components/PricingSection";
 import ClientSuccess from "./components/ClientSuccess";
-import FooterEditr from "./components/FooterEditr";
+import Footer from "./components/Footer";
 import TestimonialsGrid from "./components/TestimonialsGrid";
 
 
@@ -17,7 +17,7 @@ export default function App() {
         <AppBackground>
       <Navbar />
       <Hero />
-      <TestimonialsCarousel/>
+      {/* <TestimonialsCarousel/> */}
       </AppBackground>
       <ServicesSection />
       <ClientBaseCarousel/>
@@ -25,7 +25,7 @@ export default function App() {
       <ClientSuccess/>
       <PricingSection/>
       <TestimonialsGrid/>
-      <FooterEditr/>
+      <Footer/>
     </main>
   );
 }

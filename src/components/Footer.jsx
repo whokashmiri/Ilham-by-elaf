@@ -9,7 +9,7 @@ import { Video } from "lucide-react";
  * - Bottom: giant faded gradient word (ilham) partially visible
  */
 
-export default function FooterEditr() {
+export default function Footer() {
   return (
     <footer className="relative w-full overflow-hidden bg-white">
       {/* top divider spacing */}
