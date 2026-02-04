@@ -40,16 +40,15 @@ export default function Hero() {
                 </div>
 
                 <h1 className="mt-8 text-[56px] font-black leading-[0.95] tracking-tight text-black md:text-[72px]">
-                  Turning raw
+                  ILHAM
+                
+                  
                   <br />
-                  footage into
-                  <br />
-                  impactful results
+                  MIND AND MOTION STUDIO
                 </h1>
 
                 <p className="mt-6 max-w-md text-[15px] leading-6 text-black/55">
-                  We turn ideas into polished videos that feel intentional,
-                  fast-paced, and impossible to click away from.
+                  Workplace Mindfulness & Creative Reset Programs.
                 </p>
 
                 <div className="mt-8 flex flex-wrap items-center gap-4">
