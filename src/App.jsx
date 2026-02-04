@@ -5,6 +5,10 @@ import AppBackground from "./components/AppBackground";
 import ServicesSection from "./components/ServicesSection";
 import ClientBaseCarousel from "./components/ClientBaseCarousel";
 import ResultsCaseStudy from "./components/ResultsCaseStudy";
+import PricingSection from "./components/PricingSection";
+import ClientSuccess from "./components/ClientSuccess";
+import FooterEditr from "./components/FooterEditr";
+import TestimonialsGrid from "./components/TestimonialsGrid";
 
 
 export default function App() {
@@ -18,6 +22,10 @@ export default function App() {
       <ServicesSection />
       <ClientBaseCarousel/>
       <ResultsCaseStudy/>
+      <ClientSuccess/>
+      <PricingSection/>
+      <TestimonialsGrid/>
+      <FooterEditr/>
     </main>
   );
 }

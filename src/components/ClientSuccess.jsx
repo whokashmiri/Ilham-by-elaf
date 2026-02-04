@@ -61,7 +61,7 @@ function useCountUp({
   return useMemo(() => formatter(value), [value, formatter]);
 }
 
-export default function ResultsCaseStudy() {
+export default function ClientSuccess() {
   const sectionRef = useRef(null);
 
   // ✅ starts when the component enters the viewport (every time)
@@ -91,40 +91,11 @@ export default function ResultsCaseStudy() {
 
   return (
     <section ref={sectionRef} className="w-full bg-white">
-      <div className="mx-auto max-w-7xl px-6 py-16 md:px-10">
-        {/* top */}
-        <div className="text-center">
-          <div className="text-[12px] font-bold tracking-widest text-orange-500">
-            RESULTS
-          </div>
-
-          <h2 className="mx-auto mt-6 max-w-3xl text-[54px] font-black leading-[1.02] tracking-tight text-black md:text-[64px]">
-            Content outcomes you
-            <br />
-            can actually measure
-          </h2>
-        </div>
+      <div className="mx-auto max-w-7xl px-6 py-1 md:px-10">
+  
 
         {/* case study */}
         <div className="mt-14 grid items-center gap-14 lg:grid-cols-2">
-          {/* left video card */}
-          <div className="flex justify-center lg:justify-start">
-            <div className="relative w-full max-w-[720px] overflow-hidden rounded-[28px] shadow-[0_30px_70px_rgba(0,0,0,0.16)] ring-1 ring-black/10">
-              <div className="aspect-[16/9] w-full">
-                <video
-                  className="h-full w-full object-cover"
-                  src={VIDEO_URL}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                />
-              </div>
-
-              <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.03),rgba(0,0,0,0.06))]" />
-            </div>
-          </div>
-
           {/* right content */}
           <div className="max-w-xl">
             <div className="text-[12px] font-bold tracking-widest text-black/40">
@@ -161,6 +132,24 @@ export default function ResultsCaseStudy() {
                   NEW VIEWS
                 </div>
               </div>
+            </div>
+          </div>
+
+          {/* left video card */}
+          <div className="flex justify-center lg:justify-start">
+            <div className="relative w-full max-w-[720px] overflow-hidden rounded-[28px] shadow-[0_30px_70px_rgba(0,0,0,0.16)] ring-1 ring-black/10">
+              <div className="aspect-[16/9] w-full">
+                <video
+                  className="h-full w-full object-cover"
+                  src={VIDEO_URL}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                />
+              </div>
+
+              <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.03),rgba(0,0,0,0.06))]" />
             </div>
           </div>
         </div>
