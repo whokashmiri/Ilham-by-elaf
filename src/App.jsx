@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import AppBackground from "./components/AppBackground";
 import ServicesSection from "./components/ServicesSection";
 import ClientBaseCarousel from "./components/ClientBaseCarousel";
+import ResultsCaseStudy from "./components/ResultsCaseStudy";
 
 
 export default function App() {
@@ -16,6 +17,7 @@ export default function App() {
       </AppBackground>
       <ServicesSection />
       <ClientBaseCarousel/>
+      <ResultsCaseStudy/>
     </main>
   );
 }
