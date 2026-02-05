@@ -141,14 +141,14 @@ export default function TestimonialsGrid() {
           </div>
 
           <h2 className="mx-auto mt-6 max-w-2xl text-[44px] font-black leading-[1.06] tracking-tight text-black md:text-[52px]">
-            Trusted by creators
+            Trusted by individuals
             <br />
             and teams
           </h2>
 
           <div className="mt-6 flex justify-center">
             <button className="rounded-xl bg-black px-5 py-3 text-[12px] font-semibold text-white shadow-[0_18px_45px_rgba(0,0,0,0.22)] hover:bg-black/90">
-              Level up your content
+              Level up your Productivity
             </button>
           </div>
         </div>

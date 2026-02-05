@@ -9,6 +9,12 @@ import PricingSection from "./components/PricingSection";
 import ClientSuccess from "./components/ClientSuccess";
 import Footer from "./components/Footer";
 import TestimonialsGrid from "./components/TestimonialsGrid";
+import RecentWorks from "./components/RecentWorks";
+import ImpactSection from "./components/ImpactSection";
+import MeditationCreativeFlow from "./components/MeditationCreativeFlow";
+import WorkshopFormats from "./components/WorkshopFormats";
+import AboutElafShah from "./components/AboutElafShah";
+import GetInTouch from "./components/GetInTouch";
 
 
 export default function App() {
@@ -18,13 +24,20 @@ export default function App() {
       <Navbar />
       <Hero />
       {/* <TestimonialsCarousel/> */}
-      </AppBackground>
+      
       <ServicesSection />
-      <ClientBaseCarousel/>
-      <ResultsCaseStudy/>
-      <ClientSuccess/>
+      <RecentWorks/>
+      <ImpactSection/>
+      <MeditationCreativeFlow/>
+      <WorkshopFormats/>
+      <AboutElafShah/>
+      {/* <ClientBaseCarousel/> */}
+      {/* <ResultsCaseStudy/> */}
+      {/* <ClientSuccess/> */}
       <PricingSection/>
       <TestimonialsGrid/>
+      <GetInTouch/>
+      </AppBackground>
       <Footer/>
     </main>
   );

@@ -42,8 +42,10 @@ export default function Hero() {
                 <h1 className="mt-8 text-[56px] font-black leading-[0.95] tracking-tight text-black md:text-[72px]">
                   ILHAM
                 
-                  
-                  <br />
+                </h1>
+
+                <h1 className="mt-8 text-[46px] font-black leading-[0.95] tracking-tight text-black md:text-[52px]">
+              
                   MIND AND MOTION STUDIO
                 </h1>
 
