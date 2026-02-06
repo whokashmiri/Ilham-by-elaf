@@ -7,7 +7,7 @@ import SplashCursor from "./components/SplashCursor";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
   
-    {/* <SplashCursor /> */}
+    <SplashCursor />
     <App />
     
   </React.StrictMode>
