@@ -12,13 +12,13 @@ export default function Navbar() {
         <div className="relative rounded-2xl border border-black/10 bg-white backdrop-blur-xl shadow-[0_18px_45px_rgba(0,0,0,0.10)]">
           {/* smooth edges (not sharp) */}
           <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-white/40" />
-          <div className="flex items-center justify-between px-4 py-3 md:px-6">
+          <div className="flex items-center justify-between px-4 py-0 md:px-6">
             {/* Brand */}
-           <div className="flex h-14  w-16  items-center justify-center rounded-xl ">
+           <div className="flex h-18  w-16  items-center justify-center rounded-xl ">
   <img 
     src={ilham}
     alt="ILHAM Logo" 
-    className="h-14 w-16"
+    className="h-18 w-16"
   />
 </div>
 

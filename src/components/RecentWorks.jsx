@@ -4,7 +4,7 @@ import { Play, Image as ImageIcon, Video as VideoIcon } from "lucide-react";
 import keeta1 from "../assets/keeta (1).jpeg"
 import keeta3 from "../assets/keeta (2).jpeg"
 
-import keeta2 from "../assets/keeta (2).jpeg"
+import keeta2 from "../assets/keeta (3).jpeg"
 
 /**
  * RECENT WORKS (fits your existing style)
@@ -26,18 +26,18 @@ const WORKS = [
     title: "The Reflective Canvas",
     subtitle: "Meditative Poetry & Painting Workshop.",
     cover:
-      keeta1,
+      keeta2,
   },
   {
     id: "podcast",
     title: "Drawn from Within",
     subtitle: "Meditative Painting Workshop.",
     cover:
-      keeta2,
+      keeta1,
   },
   {
     id: "brand",
-    title: "Brand Campaign",
+    title: "Brand Essence Workshop",
     subtitle: "Premium storytelling and color to elevate brand presence.",
     cover:
       keeta3,
@@ -45,9 +45,9 @@ const WORKS = [
 ];
 
 const TABS = [
-  { id: "story", label: "Story", icon: ImageIcon },
-  { id: "edit", label: "Edit", icon: VideoIcon },
-  { id: "results", label: "Results", icon: Play },
+  { id: "format", label: "Format", icon: ImageIcon },
+  { id: "edit", label: "Feedback", icon: VideoIcon },
+  { id: "results", label: "What They Wanted", icon: Play },
 ];
 
 // simple shared video url (replace per work/tab if you want)
@@ -55,7 +55,7 @@ const VIDEO_URL = "https://www.pexels.com/download/video/4312168/";
 
 export default function RecentWorks() {
   const [activeWorkIdx, setActiveWorkIdx] = useState(0);
-  const [activeTab, setActiveTab] = useState("story");
+  const [activeTab, setActiveTab] = useState("format");
 
   const detailsRef = useRef(null);
 
@@ -252,8 +252,8 @@ function WorkDetailRouter({ workId, tab, cover }) {
   // You can swap content per workId if needed
   const content = getDetailContent(workId);
 
-  if (tab === "story") {
-    return <DetailStory cover={cover} video={VIDEO_URL} {...content.story} />;
+  if (tab === "format") {
+    return <DetailStory cover={cover} video={VIDEO_URL} {...content.format} />;
   }
   if (tab === "edit") {
     return <DetailEdit cover={cover} video={VIDEO_URL} {...content.edit} />;
@@ -323,7 +323,7 @@ function DetailLayout({ title, kicker, cover, video, p1, p2 }) {
 function DetailStory({ cover, video, title, p1, p2 }) {
   return (
     <DetailLayout
-      kicker="STORY"
+      kicker="FORMAT"
       title={title}
       cover={cover}
       video={video}
@@ -336,7 +336,7 @@ function DetailStory({ cover, video, title, p1, p2 }) {
 function DetailEdit({ cover, video, title, p1, p2 }) {
   return (
     <DetailLayout
-      kicker="EDIT"
+      kicker="FEEDBACK"
       title={title}
       cover={cover}
       video={video}
@@ -349,7 +349,7 @@ function DetailEdit({ cover, video, title, p1, p2 }) {
 function DetailResults({ cover, video, title, p1, p2 }) {
   return (
     <DetailLayout
-      kicker="RESULTS"
+      kicker="WHAT THEY WANTED"
       title={title}
       cover={cover}
       video={video}
@@ -362,76 +362,98 @@ function DetailResults({ cover, video, title, p1, p2 }) {
 /* ---------------------------- Content Map ---------------------------- */
 
 function getDetailContent(workId) {
-  // defaults (you can customize per workId)
-  const base = {
-    story: {
-      title: "A clear hook + structure that holds attention",
-      p1: "We start by identifying the strongest opening moment, then outline a simple structure that makes the viewer feel progress every 10–15 seconds.",
-      p2: "The goal is clarity first: remove filler, reinforce the main idea, and land a clean ending that naturally leads to the next video.",
-    },
-    edit: {
-      title: "Fast pacing without feeling rushed",
-      p1: "We use pattern interrupts (punch-ins, b-roll, captions, beat cuts) to maintain momentum while keeping the narrative easy to follow.",
-      p2: "Color, audio, and text styling are tuned to platform-native expectations so the content feels premium but still organic.",
-    },
-    results: {
-      title: "Metrics you can actually measure",
-      p1: "We track retention graphs, average view duration, and saves/shares to see what edits improved watch time and what to repeat.",
-      p2: "Deliverables are consistent and scalable—so you can publish more often without sacrificing quality.",
-    },
-  };
-
-  // per-project tweaks (optional)
+  /* -------------------- CARD 1 -------------------- */
   if (workId === "finance") {
     return {
-      story: {
-        ...base.story,
-        title: "Finance content that stays simple (and sticky)",
+      format: {
+        title: "Workshop Format",
+        p1:
+          "• Duration: 2 hours\n" +
+          "• Participants: 30\n" +
+          "• Customized agenda",
+        p2:
+          "Designed to balance reflection, creativity, and emotional grounding in a calm, guided setting.",
       },
+
       edit: {
-        ...base.edit,
-        title: "Clean, confident edits for trust + authority",
+        title: "Participant Feedback",
+        p1:
+          "Participants reported feeling noticeably calmer, clearer, and more focused after the session.",
+        p2:
+          "Teams highlighted improved engagement, deeper connection, and stronger collaboration.",
       },
+
       results: {
-        ...base.results,
-        title: "Retention + trust signals move together",
+        title: "What They Wanted",
+        p1:
+          "A de-stressing, relaxing, and creative workshop experience.",
+        p2:
+          "The goal was to help participants slow down, reconnect with themselves, and express creatively.",
       },
     };
   }
 
+  /* -------------------- CARD 2 -------------------- */
   if (workId === "podcast") {
     return {
-      story: {
-        ...base.story,
-        title: "Clip selection that feels inevitable",
+      format: {
+        title: "Workshop Format",
+        p1:
+          "• Duration: 3 hours\n" +
+          "• Participants: 35\n" +
+          "• Customized theme",
+        p2:
+          "Structured to support longer reflection, creative exploration, and emotional release.",
       },
+
       edit: {
-        ...base.edit,
-        title: "Punchy cuts built for short-form",
+        title: "Participant Feedback",
+        p1:
+          "Participants experienced a noticeable shift from mental fatigue to creative clarity.",
+        p2:
+          "Many described the session as a supportive space to slow down and reflect during a period of burnout.",
       },
+
       results: {
-        ...base.results,
-        title: "More clips, more reps, more winners",
+        title: "What They Wanted",
+        p1:
+          "A workshop targeting mental wellbeing and creativity.",
+        p2:
+          "The intention was to offer relief from stress while re-igniting creative energy.",
       },
     };
   }
 
+  /* -------------------- CARD 3 -------------------- */
   if (workId === "brand") {
     return {
-      story: {
-        ...base.story,
-        title: "Brand storytelling that looks expensive",
+      format: {
+        title: "Workshop Format",
+        p1:
+          "• Half-day immersive session\n" +
+          "• Team-based participation\n" +
+          "• Brand-aligned creative exercises",
+        p2:
+          "Combined mindfulness, visual storytelling, and collaborative creation to reflect brand values.",
       },
+
       edit: {
-        ...base.edit,
-        title: "Color + sound design that elevates",
+        title: "Participant Feedback",
+        p1:
+          "Teams reported higher engagement and stronger emotional connection during the session.",
+        p2:
+          "Participants felt more aligned, inspired, and confident expressing ideas together.",
       },
+
       results: {
-        ...base.results,
-        title: "Premium look, better conversion",
+        title: "What They Wanted",
+        p1:
+          "A meaningful creative experience that strengthens team connection and brand identity.",
+        p2:
+          "The goal was to translate internal values into a shared creative language.",
       },
     };
   }
 
-  return base;
+  return {};
 }

@@ -43,7 +43,7 @@ export default function ServicesSection() {
         <div className="mt-16 grid gap-10 lg:grid-cols-3">
           <VideoCard className="h-[420px]" src={v1} />
           <VideoCard className="h-[420px]" src={v2} />
-          <VideoCard className="h-[420px]" src={v3} />
+          <VideoCard className="h-[420px]" src="https://www.pexels.com/download/video/7857988/" />
         </div>
       </div>
     </section>
