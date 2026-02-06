@@ -1,6 +1,10 @@
 // src/components/RecentWorks.jsx
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Play, Image as ImageIcon, Video as VideoIcon } from "lucide-react";
+import keeta1 from "../assets/keeta (1).jpeg"
+import keeta3 from "../assets/keeta (2).jpeg"
+
+import keeta2 from "../assets/keeta (2).jpeg"
 
 /**
  * RECENT WORKS (fits your existing style)
@@ -22,21 +26,21 @@ const WORKS = [
     title: "The Reflective Canvas",
     subtitle: "Meditative Poetry & Painting Workshop.",
     cover:
-      "https://images.unsplash.com/photo-1554224155-1696413565d3?auto=format&fit=crop&w=1600&q=80",
+      keeta1,
   },
   {
     id: "podcast",
     title: "Drawn from Within",
     subtitle: "Meditative Painting Workshop.",
     cover:
-      "https://images.unsplash.com/photo-1525186402429-b4ff38bedbec?auto=format&fit=crop&w=1600&q=80",
+      keeta2,
   },
   {
     id: "brand",
     title: "Brand Campaign",
     subtitle: "Premium storytelling and color to elevate brand presence.",
     cover:
-      "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80",
+      keeta3,
   },
 ];
 
@@ -47,7 +51,7 @@ const TABS = [
 ];
 
 // simple shared video url (replace per work/tab if you want)
-const VIDEO_URL = "https://www.w3schools.com/html/mov_bbb.mp4";
+const VIDEO_URL = "https://www.pexels.com/download/video/4312168/";
 
 export default function RecentWorks() {
   const [activeWorkIdx, setActiveWorkIdx] = useState(0);

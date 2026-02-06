@@ -3,8 +3,9 @@ import React from "react";
 import { Play, ArrowUpRight } from "lucide-react";
 
 const VIDEO_URL = "https://www.pexels.com/download/video/6962444/"; // use direct .mp4
+const date = new Date().toLocaleString('default',{month:'long'}); // Get current month (0-11, so add 1 for 1-12)
 
-export default function Hero() {
+ export default function Hero() {
   return (
     <section className="min-h-screen w-full bg-[#f6f0f4]">
       <div className="relative min-h-screen overflow-hidden">
@@ -36,7 +37,7 @@ export default function Hero() {
               <div className="animate-heroIn space-y-3">
                 <div className="inline-flex items-center gap-2 rounded-full bg-white/40 px-3 py-2 text-[12px] font-semibold tracking-wide text-black/70 ring-1 ring-black/5 backdrop-blur">
                   <span className="h-2 w-2 rounded-full bg-red-500 animate-pulse" />
-                  <span>3 SPOTS LEFT FOR JUNE</span>
+                  <span className="uppercase">3 SPOTS LEFT FOR {date}</span>
                 </div>
 
                 <h1 className="mt-8 text-[56px] font-black leading-[0.95] tracking-tight text-black md:text-[72px]">

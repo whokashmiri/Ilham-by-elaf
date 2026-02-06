@@ -68,12 +68,12 @@ export default function GetInTouch() {
                   value="Elaf.a.shah@gmail.com"
                   href="mailto:Elaf.a.shah@gmail.com"
                 />
-                <ContactRow
+                {/* <ContactRow
                   icon={Phone}
                   label="Phone"
                   value="+966 537959098"
                   href="tel:+966537959098"
-                />
+                /> */}
                 <ContactRow
                   icon={Linkedin}
                   label="LinkedIn"

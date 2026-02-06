@@ -37,8 +37,8 @@ export default function PricingSection() {
         <div className="mt-14 grid gap-8 lg:grid-cols-3">
           {/* Left: Core */}
           <PlanCard
-            tag="Core"
-            price="From 3,000 – 5,000 SAR"
+            tag="From 3,000 - 5,000 SAR"
+            price="CORE"
             desc={"Standard workshop."}
             meta={[
               { k: "Duration", v: "2 hours" },
@@ -57,8 +57,8 @@ export default function PricingSection() {
 
           {/* Right: Customized workshop */}
           <PlanCard
-            tag="Customized"
-            price="From 6,000 – 9,000 SAR"
+            tag="From 6,000 - 9,000 SAR"
+            price="Tailored"
             desc={"Customized workshop designed around your event or theme."}
             meta={[
               { k: "Duration", v: "2–3 hours" },
@@ -175,11 +175,11 @@ function FeaturedPlanCard() {
       {/* content */}
       <div className="relative p-6">
         <div className="text-[12px] font-bold tracking-widest uppercase text-black/85">
-          Retreat-style
+          By Proposal
         </div>
 
         <div className="mt-4 text-[38px] font-black tracking-tight text-black md:text-[42px]">
-          By proposal
+          Immersive
         </div>
 
         <div className="mt-3 text-[16px] leading-7 text-black/80">

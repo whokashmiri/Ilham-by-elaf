@@ -1,6 +1,7 @@
 // src/components/FooterEditr.jsx
 import React from "react";
 import { Video } from "lucide-react";
+import ilham from "../assets/ilham.png"
 
 /**
  * Component 2: FooterEditr (matches screenshot bottom)
@@ -18,12 +19,15 @@ export default function Footer() {
           {/* left */}
           <div className="max-w-md">
             <div className="flex items-center gap-3 mb-2">
+               
+              <div className = "h-14 w-16 items-center justify-center rounded-xl">
+
+                <img src={ilham}
+                className="h-14 w-16"
+                />
+              </div>
+
               
-              <div className="flex items-center justify-center rounded-xl bg-black px-4 py-2 shadow-[0_18px_35px_rgba(0,0,0,0.18)]">
-              <span className="text-[12px] font-bold tracking-widest text-white">
-                ILHAM <span className="opacity-60">BY</span> ELAF
-              </span>
-            </div>
             </div>
 
             <p className="mt-4 text-[13px] leading-5 text-black/45">

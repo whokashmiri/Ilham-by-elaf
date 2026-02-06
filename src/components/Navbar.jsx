@@ -1,5 +1,6 @@
 // src/components/Navbar.jsx
 import React from "react";
+import ilham from "../assets/ilham.png"
 
 export default function Navbar() {
   return (
@@ -13,11 +14,14 @@ export default function Navbar() {
           <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-white/40" />
           <div className="flex items-center justify-between px-4 py-3 md:px-6">
             {/* Brand */}
-            <div className="flex items-center justify-center rounded-xl bg-black px-4 py-2 shadow-[0_18px_35px_rgba(0,0,0,0.18)]">
-              <span className="text-[12px] font-bold tracking-widest text-white">
-                ILHAM <span className="opacity-60">BY</span> ELAF
-              </span>
-            </div>
+           <div className="flex h-14  w-16  items-center justify-center rounded-xl ">
+  <img 
+    src={ilham}
+    alt="ILHAM Logo" 
+    className="h-14 w-16"
+  />
+</div>
+
 
             {/* Links */}
             <nav className="hidden items-center gap-8 text-[15px] font-medium text-black/80 md:flex">
