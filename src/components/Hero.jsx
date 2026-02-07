@@ -17,7 +17,7 @@ const handleDownload = () => {
 };
 
 const handleInstagram = () => {
-  window.open("https://www.instagram.com/elshiae", "_blank");
+  window.open("https://www.instagram.com/ilhambyelaf", "_blank");
 };
 
  export default function Hero() {
