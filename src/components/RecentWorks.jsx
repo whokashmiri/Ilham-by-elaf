@@ -1,23 +1,17 @@
-// src/components/RecentWorks.jsx
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { Play, Image as ImageIcon, Video as VideoIcon } from "lucide-react";
-import keeta1 from "../assets/keeta (1).jpeg"
-import keeta3 from "../assets/keeta (2).jpeg"
 
-import keeta2 from "../assets/keeta (3).jpeg"
+import keeta1 from "../assets/keeta (1).jpeg";
+import keeta2 from "../assets/keeta (3).jpeg";
+import keeta3 from "../assets/keeta (2).png";
+
+// 👇 logos (replace with your real files)
+import logo1 from "../assets/keeta logo.png";
+import logo2 from "../assets/riyadhwriters.png";
+import logo3 from "../assets/ilham.png";
 
 /**
- * RECENT WORKS (fits your existing style)
- * - Top: 3 image cards
- * - Each card has: title + short text + 3 buttons
- * - Clicking a button:
- *   1) sets active "work + tab"
- *   2) smooth scrolls to the detail area (1 viewport height down-ish)
- * - Detail area:
- *   - shows 1 of 3 components for the selected card
- *   - each detail: image + video + two paragraphs
- *
- * Drop-in: <RecentWorks />
+ * RECENT WORKS
  */
 
 const WORKS = [
@@ -25,22 +19,22 @@ const WORKS = [
     id: "finance",
     title: "The Reflective Canvas",
     subtitle: "Meditative Poetry & Painting Workshop.",
-    cover:
-      keeta2,
+    cover: keeta2,
+    logo: logo1,
   },
   {
     id: "podcast",
     title: "Drawn from Within",
     subtitle: "Meditative Painting Workshop.",
-    cover:
-      keeta1,
+    cover: keeta1,
+    logo: logo2,
   },
   {
     id: "brand",
     title: "Brand Essence Workshop",
     subtitle: "Premium storytelling and color to elevate brand presence.",
-    cover:
-      keeta3,
+    cover: keeta3,
+    logo: logo3,
   },
 ];
 
@@ -50,13 +44,11 @@ const TABS = [
   { id: "results", label: "What They Wanted", icon: Play },
 ];
 
-// simple shared video url (replace per work/tab if you want)
 const VIDEO_URL = "https://www.pexels.com/download/video/4312168/";
 
 export default function RecentWorks() {
   const [activeWorkIdx, setActiveWorkIdx] = useState(0);
   const [activeTab, setActiveTab] = useState("format");
-
   const detailsRef = useRef(null);
 
   const activeWork = WORKS[activeWorkIdx];
@@ -65,18 +57,18 @@ export default function RecentWorks() {
     setActiveWorkIdx(workIdx);
     setActiveTab(tabId);
 
-    // smooth scroll to details (roughly ~1 viewport down)
     requestAnimationFrame(() => {
-      const el = detailsRef.current;
-      if (!el) return;
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      detailsRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
     });
   };
 
   return (
     <section className="w-full bg-white">
       <div className="mx-auto max-w-7xl px-6 py-16 md:px-10">
-        {/* header */}
+        {/* Header */}
         <div className="text-center">
           <div className="text-[12px] font-bold tracking-widest text-orange-500">
             RECENT WORKS
@@ -92,7 +84,7 @@ export default function RecentWorks() {
           </p>
         </div>
 
-        {/* cards */}
+        {/* Cards */}
         <div className="mt-14 grid gap-8 lg:grid-cols-3">
           {WORKS.map((w, idx) => (
             <WorkCard
@@ -105,7 +97,7 @@ export default function RecentWorks() {
           ))}
         </div>
 
-        {/* details */}
+        {/* Details */}
         <div ref={detailsRef} className="mt-16 scroll-mt-6">
           <div className="rounded-[28px] border border-black/10 bg-white p-6 shadow-[0_20px_50px_rgba(0,0,0,0.06)] md:p-10">
             <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
@@ -121,7 +113,6 @@ export default function RecentWorks() {
                 </div>
               </div>
 
-              {/* tab switch (also available down here) */}
               <div className="flex flex-wrap gap-3">
                 {TABS.map((t) => (
                   <TabPill
@@ -149,27 +140,29 @@ export default function RecentWorks() {
   );
 }
 
-/* ---------------------------- UI Pieces ---------------------------- */
+/* ---------------------------- Card ---------------------------- */
 
 function WorkCard({ work, active, activeTab, onPickTab }) {
   return (
-    <div
-      className={[
-        "rounded-[28px] border border-black/10 bg-white",
-        "shadow-[0_20px_50px_rgba(0,0,0,0.08)]",
-        "overflow-hidden",
-      ].join(" ")}
-    >
-      <div className="relative h-[220px]">
+    <div className="overflow-hidden rounded-[28px] border border-black/10 bg-white shadow-[0_20px_50px_rgba(0,0,0,0.08)]">
+      {/* Image */}
+      <div className="relative h-[320px]">
         <img
           src={work.cover}
           alt={work.title}
           className="absolute inset-0 h-full w-full object-cover"
         />
-        {/* soft overlay */}
-        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.10),rgba(0,0,0,0.22))]" />
+
+        {/* overlay */}
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.08),rgba(0,0,0,0.25))]" />
+
+        {/* logo (TOP) */}
+        <div className="absolute left-4 top-4 rounded-xl bg-white/90 px-2 py-1 shadow-lg backdrop-blur">
+          <img src={work.logo} alt="Logo" className="h-10 w-14" />
+        </div>
       </div>
 
+      {/* Content */}
       <div className="p-6">
         <div className="text-[18px] font-black tracking-tight text-black">
           {work.title}
@@ -190,19 +183,13 @@ function WorkCard({ work, active, activeTab, onPickTab }) {
           ))}
         </div>
 
-        {/* subtle active hint */}
-        <div className="mt-5">
-          <div
-            className={[
-              "h-px w-full",
-              active ? "bg-black/15" : "bg-black/10",
-            ].join(" ")}
-          />
-        </div>
+        <div className="mt-5 h-px w-full bg-black/10" />
       </div>
     </div>
   );
 }
+
+/* ---------------------------- Buttons ---------------------------- */
 
 function SmallActionButton({ icon: Icon, label, active, onClick }) {
   return (
@@ -210,8 +197,7 @@ function SmallActionButton({ icon: Icon, label, active, onClick }) {
       type="button"
       onClick={onClick}
       className={[
-        "inline-flex items-center gap-2 rounded-2xl px-4 py-2 text-[12px] font-semibold",
-        "ring-1 transition",
+        "inline-flex items-center gap-2 rounded-2xl px-4 py-2 text-[12px] font-semibold ring-1 transition",
         active
           ? "bg-black text-white ring-black/10 shadow-[0_16px_40px_rgba(0,0,0,0.16)]"
           : "bg-white text-black/70 ring-black/10 hover:bg-black/5",
@@ -231,8 +217,7 @@ function TabPill({ active, onClick, icon: Icon, label }) {
       type="button"
       onClick={onClick}
       className={[
-        "inline-flex items-center gap-2 rounded-2xl px-4 py-2 text-[12px] font-semibold",
-        "ring-1 transition",
+        "inline-flex items-center gap-2 rounded-2xl px-4 py-2 text-[12px] font-semibold ring-1 transition",
         active
           ? "bg-black text-white ring-black/10 shadow-[0_16px_40px_rgba(0,0,0,0.16)]"
           : "bg-white text-black/70 ring-black/10 hover:bg-black/5",
@@ -246,214 +231,117 @@ function TabPill({ active, onClick, icon: Icon, label }) {
   );
 }
 
-/* ---------------------------- Detail Router ---------------------------- */
+/* ---------------------------- Details ---------------------------- */
 
 function WorkDetailRouter({ workId, tab, cover }) {
-  // You can swap content per workId if needed
   const content = getDetailContent(workId);
 
-  if (tab === "format") {
+  if (tab === "format")
     return <DetailStory cover={cover} video={VIDEO_URL} {...content.format} />;
-  }
-  if (tab === "edit") {
+  if (tab === "edit")
     return <DetailEdit cover={cover} video={VIDEO_URL} {...content.edit} />;
-  }
-  return <DetailResults cover={cover} video={VIDEO_URL} {...content.results} />;
+  return (
+    <DetailResults cover={cover} video={VIDEO_URL} {...content.results} />
+  );
 }
 
 function DetailLayout({ title, kicker, cover, video, p1, p2 }) {
   return (
-    <div className="grid items-start gap-10 lg:grid-cols-2">
-      {/* media */}
+    <div className="grid gap-10 lg:grid-cols-2">
       <div className="space-y-6">
-        {/* image */}
-        <div className="relative overflow-hidden rounded-[24px] shadow-[0_28px_70px_rgba(0,0,0,0.12)] ring-1 ring-black/10">
-          <div className="aspect-[16/10]">
-            <img
-              src={cover}
-              alt=""
-              className="h-full w-full object-cover"
-              loading="lazy"
-            />
-          </div>
-          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.06),rgba(0,0,0,0.10))]" />
+        <div className="overflow-hidden rounded-[24px] ring-1 ring-black/10">
+          <img src={cover} className="aspect-[16/10] w-full object-cover" />
         </div>
 
-        {/* video */}
-        <div className="relative overflow-hidden rounded-[24px] bg-black shadow-[0_28px_70px_rgba(0,0,0,0.14)] ring-1 ring-black/10">
-          <div className="aspect-[16/9]">
-            <video
-              className="h-full w-full object-cover"
-              src={video}
-              autoPlay
-              muted
-              loop
-              playsInline
-            />
-          </div>
-          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,rgba(255,255,255,0.05),rgba(255,255,255,0))]" />
+        <div className="overflow-hidden rounded-[24px] ring-1 ring-black/10">
+          <video
+            src={video}
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="aspect-[16/9] w-full object-cover"
+          />
         </div>
       </div>
 
-      {/* text */}
       <div className="max-w-xl">
         <div className="text-[12px] font-bold tracking-widest text-orange-500">
           {kicker}
         </div>
-
-        <h3 className="mt-5 text-[44px] font-black leading-[1.05] tracking-tight text-black">
-          {title}
-        </h3>
-
-        <p className="mt-6 text-[15px] leading-6 text-black/55">{p1}</p>
-        <p className="mt-4 text-[15px] leading-6 text-black/55">{p2}</p>
-
-        <div className="mt-8 h-px w-full bg-black/10" />
-
-        <div className="mt-6 text-[12px] font-bold tracking-widest text-black/35">
-          ASK ILHAM
-        </div>
+        <h3 className="mt-5 text-[44px] font-black">{title}</h3>
+        <p className="mt-6 text-black/55">{p1}</p>
+        <p className="mt-4 text-black/55">{p2}</p>
       </div>
     </div>
   );
 }
 
-/* ---------------------------- 3 Detail Components ---------------------------- */
+const DetailStory = (props) => <DetailLayout kicker="FORMAT" {...props} />;
+const DetailEdit = (props) => <DetailLayout kicker="FEEDBACK" {...props} />;
+const DetailResults = (props) => (
+  <DetailLayout kicker="WHAT THEY WANTED" {...props} />
+);
 
-function DetailStory({ cover, video, title, p1, p2 }) {
-  return (
-    <DetailLayout
-      kicker="FORMAT"
-      title={title}
-      cover={cover}
-      video={video}
-      p1={p1}
-      p2={p2}
-    />
-  );
-}
-
-function DetailEdit({ cover, video, title, p1, p2 }) {
-  return (
-    <DetailLayout
-      kicker="FEEDBACK"
-      title={title}
-      cover={cover}
-      video={video}
-      p1={p1}
-      p2={p2}
-    />
-  );
-}
-
-function DetailResults({ cover, video, title, p1, p2 }) {
-  return (
-    <DetailLayout
-      kicker="WHAT THEY WANTED"
-      title={title}
-      cover={cover}
-      video={video}
-      p1={p1}
-      p2={p2}
-    />
-  );
-}
-
-/* ---------------------------- Content Map ---------------------------- */
+/* ---------------------------- Content ---------------------------- */
 
 function getDetailContent(workId) {
-  /* -------------------- CARD 1 -------------------- */
   if (workId === "finance") {
     return {
       format: {
         title: "Workshop Format",
-        p1:
-          "• Duration: 2 hours\n" +
-          "• Participants: 30\n" +
-          "• Customized agenda",
+        p1: "• Duration: 2 hours\n• Participants: 30\n• Customized agenda",
         p2:
-          "Designed to balance reflection, creativity, and emotional grounding in a calm, guided setting.",
+          "Designed to balance reflection, creativity, and emotional grounding.",
       },
-
       edit: {
         title: "Participant Feedback",
-        p1:
-          "Participants reported feeling noticeably calmer, clearer, and more focused after the session.",
-        p2:
-          "Teams highlighted improved engagement, deeper connection, and stronger collaboration.",
+        p1: "Participants felt calmer, clearer, and more focused.",
+        p2: "Teams highlighted deeper engagement and collaboration.",
       },
-
       results: {
         title: "What They Wanted",
-        p1:
-          "A de-stressing, relaxing, and creative workshop experience.",
-        p2:
-          "The goal was to help participants slow down, reconnect with themselves, and express creatively.",
+        p1: "A relaxing, creative workshop.",
+        p2: "Helping participants slow down and reconnect.",
       },
     };
   }
 
-  /* -------------------- CARD 2 -------------------- */
   if (workId === "podcast") {
     return {
       format: {
         title: "Workshop Format",
-        p1:
-          "• Duration: 3 hours\n" +
-          "• Participants: 35\n" +
-          "• Customized theme",
-        p2:
-          "Structured to support longer reflection, creative exploration, and emotional release.",
+        p1: "• Duration: 3 hours\n• Participants: 35\n• Custom theme",
+        p2: "Longer reflection and creative exploration.",
       },
-
       edit: {
         title: "Participant Feedback",
-        p1:
-          "Participants experienced a noticeable shift from mental fatigue to creative clarity.",
-        p2:
-          "Many described the session as a supportive space to slow down and reflect during a period of burnout.",
+        p1: "A shift from burnout to clarity.",
+        p2: "A safe space to slow down.",
       },
-
       results: {
         title: "What They Wanted",
-        p1:
-          "A workshop targeting mental wellbeing and creativity.",
-        p2:
-          "The intention was to offer relief from stress while re-igniting creative energy.",
+        p1: "Mental wellbeing & creativity.",
+        p2: "Relief from stress and renewed energy.",
       },
     };
   }
 
-  /* -------------------- CARD 3 -------------------- */
-  if (workId === "brand") {
-    return {
-      format: {
-        title: "Workshop Format",
-        p1:
-          "• Half-day immersive session\n" +
-          "• Team-based participation\n" +
-          "• Brand-aligned creative exercises",
-        p2:
-          "Combined mindfulness, visual storytelling, and collaborative creation to reflect brand values.",
-      },
-
-      edit: {
-        title: "Participant Feedback",
-        p1:
-          "Teams reported higher engagement and stronger emotional connection during the session.",
-        p2:
-          "Participants felt more aligned, inspired, and confident expressing ideas together.",
-      },
-
-      results: {
-        title: "What They Wanted",
-        p1:
-          "A meaningful creative experience that strengthens team connection and brand identity.",
-        p2:
-          "The goal was to translate internal values into a shared creative language.",
-      },
-    };
-  }
-
-  return {};
+  return {
+    format: {
+      title: "Workshop Format",
+      p1: "• Half-day immersive\n• Team-based\n• Brand-aligned",
+      p2: "Mindfulness + storytelling.",
+    },
+    edit: {
+      title: "Participant Feedback",
+      p1: "Stronger emotional connection.",
+      p2: "More confident collaboration.",
+    },
+    results: {
+      title: "What They Wanted",
+      p1: "A meaningful brand experience.",
+      p2: "Shared creative language.",
+    },
+  };
 }

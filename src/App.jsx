@@ -35,7 +35,7 @@ export default function App() {
       {/* <ResultsCaseStudy/> */}
       {/* <ClientSuccess/> */}
       <PricingSection/>
-      <TestimonialsGrid/>
+      {/* <TestimonialsGrid/> */}
       <GetInTouch/>
       </AppBackground>
       <Footer/>

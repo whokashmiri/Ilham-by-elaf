@@ -1,6 +1,7 @@
 // src/components/AboutElafShah.jsx
 import React from "react";
 import { Briefcase, Sparkles } from "lucide-react";
+import Elaf from "../assets/Elaf.jpg";
 
 export default function AboutElafShah() {
   return (
@@ -22,7 +23,7 @@ export default function AboutElafShah() {
             <div className="relative overflow-hidden rounded-[32px] shadow-[0_30px_70px_rgba(0,0,0,0.18)] ring-1 ring-black/10">
               {/* replace src with real photo */}
               <img
-                src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=900&q=80"
+                src={Elaf}
                 alt="Elaf Shah"
                 className="h-[520px] w-full object-cover"
               />

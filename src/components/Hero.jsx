@@ -1,9 +1,24 @@
 // src/components/Hero.jsx
 import React from "react";
 import { Play, ArrowUpRight } from "lucide-react";
+import portfolio from "../assets/Ilham Studio Deck-L.pdf";
 
 const VIDEO_URL = "https://www.pexels.com/download/video/6962444/"; // use direct .mp4
 const date = new Date().toLocaleString('default',{month:'long'}); // Get current month (0-11, so add 1 for 1-12)
+
+
+const handleDownload = () => {
+  const link = document.createElement("a");
+  link.href = portfolio;
+  link.download = "porfolio"; // rename if you want
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
+
+const handleInstagram = () => {
+  window.open("https://www.instagram.com/elshiae", "_blank");
+};
 
  export default function Hero() {
   return (
@@ -54,29 +69,35 @@ const date = new Date().toLocaleString('default',{month:'long'}); // Get current
                   Workplace Mindfulness & Creative Reset Programs.
                 </p>
 
-                <div className="mt-8 flex flex-wrap items-center gap-4">
-                  <ShutterButton
-                    variant="dark"
-                    label="Download My Portfolio"
-                    hoverLabel="Download My Portfolio"
-                    icon={
-                      <span className="ml-2 flex h-6 w-6 items-center justify-center rounded-lg bg-black/5 ring-1 ring-black/10">
-                        <ArrowUpRight className="h-4 w-4" />
-                      </span>
-                    }
-                  />
+               <div className="mt-8 flex flex-wrap items-center gap-4">
+  <ShutterButton
+    variant="dark"
+    label="Download My Portfolio"
+    hoverLabel="Download My Portfolio"
+    onClick={handleDownload}
+    icon={
+      <span className="ml-2 flex h-6 w-6 items-center justify-center rounded-lg bg-black/5 ring-1 ring-black/10">
+        <ArrowUpRight className="h-4 w-4" />
+      </span>
+    }
+  />
 
-                  <ShutterButton
-                    variant="light"
-                    label="Follow On Instagram"
-                    hoverLabel="Follow On Instagram"
-                    icon={
-                      <span className="ml-2 flex h-6 w-6 items-center justify-center rounded-lg bg-black/5 ring-1 ring-black/10">
-                        <Play className="h-4 w-4" />
-                      </span>
-                    }
-                  />
-                </div>
+  <ShutterButton
+    variant="light"
+    label="Follow On Instagram"
+    hoverLabel="Follow On Instagram"
+    onClick={handleInstagram}
+    icon={
+      <span className="ml-2 flex h-6 w-6 items-center justify-center rounded-lg bg-black/5 ring-1 ring-black/10">
+        <Play className="h-4 w-4" />
+      </span>
+    }
+  />
+</div>
+
+
+
+
               </div>
             </div>
 
