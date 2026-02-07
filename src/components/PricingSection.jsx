@@ -37,7 +37,7 @@ export default function PricingSection() {
         <div className="mt-14 grid gap-8 lg:grid-cols-3">
           {/* Left: Core */}
           <PlanCard
-            tag=" Standard workshop,"
+            tag=" Standard workshop."
             price="Core"
             desc={"Investment 3,000 - 5,000 SAR"}
             meta={[
@@ -48,8 +48,10 @@ export default function PricingSection() {
             idealWhen={[
               "Teams want a structured engagement session.",
             ]}
-            buttonLabel="Enquire"
+            
+            buttonLabel="Request proposal"
             buttonVariant="dark"
+            withPhone
           />
 
           {/* Middle: Retreat-style (animated gradient) */}
@@ -57,7 +59,7 @@ export default function PricingSection() {
 
           {/* Right: Customized workshop */}
           <PlanCard
-            tag="Customized workshop designed around your event or theme. "
+            tag="Customized to your theme and agenda. "
             price="Tailored"
             desc={"Investment 6,000 - 9,000 SAR"}
             meta={[
@@ -73,7 +75,7 @@ export default function PricingSection() {
             idealWhen={[
               "Event is hosted — Mother’s Day, National Day.",
             ]}
-            buttonLabel="Book a call"
+            buttonLabel="Request proposal"
             buttonVariant="dark"
             withPhone
           />
@@ -174,7 +176,7 @@ function FeaturedPlanCard() {
 
       {/* content */}
       <div className="relative p-6">
-        <div className="text-[12px] font-bold tracking-widest uppercase text-black/85">
+        <div className="text-[12px] font-bold tracking-widest text-black/85">
          Customizable, retreat-style experience. 
         </div>
 
